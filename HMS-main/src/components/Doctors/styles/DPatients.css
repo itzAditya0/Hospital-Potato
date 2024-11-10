@@ -1,0 +1,48 @@
+/* src/Doctors/styles/DPatients.css */
+.dpatients-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.patients-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.patients-table th,
+.patients-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.patients-table th {
+    background-color: darkgrey;
+    font-weight: bold;
+}
+
+.patients-table tr:hover td {
+    background-color: #f4f8fc;
+}
+
+.status-admitted {
+    color: #3498db;
+}
+
+.status-discharged {
+    color: #2ecc71;
+}
+
+.status-underobservation {
+    color: #f39c12;
+}
+
+select {
+    padding: 4px;
+    border-radius: 4px;
+}

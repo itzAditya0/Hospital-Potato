@@ -1,0 +1,134 @@
+/* Settings.css */
+/* General Container Styling */
+.settings-content {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Headings Styling */
+.settings-content h2,
+.settings-form h3 {
+    text-align: center;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.settings-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input,
+.form-group select,
+.multi-select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #f9f9fc;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.multi-select:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Specialization Multi-Select Styling */
+.multi-select {
+    height: 120px;
+    font-size: 14px;
+    background: #f1f1f1;
+}
+
+/* Clinic Days Checkbox Styling */
+.clinic-days label {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 14px;
+    color: #444;
+}
+
+.clinic-days input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Notification Preferences Styling */
+.notification-preferences {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.notification-preferences label {
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Button Styling */
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .settings-content {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .settings-form {
+        padding: 15px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .multi-select {
+        font-size: 13px;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}

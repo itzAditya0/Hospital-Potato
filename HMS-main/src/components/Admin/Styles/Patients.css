@@ -1,0 +1,251 @@
+/* General Styling */
+.patient-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    align-items: left;
+}
+
+/* View Toggle Buttons */
+.view-toggle-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.view-toggle {
+    display: flex;
+    color: black;
+    align-items: left;
+    gap: 5px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-toggle.active, .view-toggle:hover {
+    background-color: #1565c0;
+    color: white;
+}
+
+/* Search and Filter Styling */
+.filter-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.search-input-container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #1565c0;
+    font-size: 18px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    align-items: center;
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-size: 16px;
+}
+
+.search-input:focus {
+    border-color: #1565c0;
+    box-shadow: 0 0 5px rgba(21, 101, 192, 0.2);
+}
+
+/* Dropdown Styling */
+.filters-dropdown {
+    position: relative;
+}
+
+.filters-button {
+    background-color: #1565c0;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filters-button:hover {
+    background-color: #0d47a1;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.arrow-down {
+    font-size: 18px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px 0;
+    z-index: 1;
+}
+
+.filters-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content button {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #1565c0;
+    padding: 10px 15px;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content button:hover {
+    background-color: #e0f7fa;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.3s ease;
+}
+
+/* Status Indicators */
+.approve-btn.approved {
+    background-color: #a4ffbd;
+    color: #2d421e;
+    border: 1px solid #a4ffbd;
+}
+
+.approve-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.approve-btn:not(.approved) {
+    background-color: #ffcccc;
+    color: #cc0000;
+}
+
+/* Card View Layout */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.patient-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.patient-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.patient-card h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+.patient-card p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 15px;
+}
+
+.card-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+/* Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+}
+
+.close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #999;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.close-icon:hover {
+    color: #333;
+}

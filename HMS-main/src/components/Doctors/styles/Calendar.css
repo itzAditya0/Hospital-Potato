@@ -1,0 +1,35 @@
+/* Calendar.css */
+.calendar-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+    transition: box-shadow 0.3s ease;
+}
+
+.calendar-container:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.calendar-item {
+    background: linear-gradient(135deg, #f0f8ff, #e0f7ff);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.calendar-item:hover {
+    background: #e6f7ff;
+    transform: translateY(-3px);
+}

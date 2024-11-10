@@ -1,0 +1,221 @@
+/* Main container styling */
+.doctors-content {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f7f6;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    color: black;
+    font-family: "Arial", sans-serif;
+    position: relative;
+}
+
+/* Show All Departments Button Styling */
+.filter-button-container {
+    position: absolute;
+    top: 35px;
+    right: 10px;
+}
+
+.btn-filter {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: skyblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-filter:hover {
+    background-color: #0056b3;
+}
+
+/* Move doctor heading and table down */
+h2 {
+    margin-top: 60px; /* Adjust this to move the heading further down */
+}
+
+table {
+    margin-top: 40px; /* Adjust this to move the table further down */
+}
+
+/* Department Boxes Styling */
+.departments-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.department-box {
+    flex: 1 1 30%;
+    margin: 10px;
+    padding: 20px;
+    background-color: skyblue;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.department-box h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.department-box:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #292b2c; /* Darker background for table header */
+    color: white;
+}
+
+thead th {
+    padding: 15px;
+    text-align: left;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+tbody td:last-child {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Button Styling */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition:
+        background-color 0.3s ease,
+        transform 0.1s ease;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+button:hover {
+    transform: scale(1.02);
+}
+
+.btn-view {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-view:hover {
+    background-color: #5a6268;
+}
+
+/* Modal Styling */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    width: 400px;
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+.modal::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 5px;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal-content button:not(:last-child) {
+    margin-right: 45px;
+}
+
+.modal-content button {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.modal-content button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .doctors-content {
+        width: 95%;
+    }
+
+    .modal {
+        width: 95%;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    .department-box {
+        flex: 1 1 45%; /* Adjust the layout for smaller screens */
+    }
+
+    .filter-button-container {
+        top: 5px;
+        right: 5px;
+    }
+}

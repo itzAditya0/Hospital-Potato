@@ -1,0 +1,115 @@
+.patient-page {
+    padding: 20px;
+    margin: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+.patient-page h2 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333333;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid #dddddd;
+    text-align: left;
+    font-size: 16px;
+    color: #333;
+}
+
+th {
+    background-color: #f1f3f5;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+tbody tr:hover {
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.approve-btn {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.approve-btn.approved {
+    background-color: #28a745;
+    transform: scale(1.05); /* Slightly enlarges the button when approved */
+}
+
+.approve-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+input[type="file"] {
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+input[type="file"]:hover {
+    background-color: #e9e9e9;
+    border-color: #007bff;
+}
+
+td span {
+    margin-left: 10px;
+    color: #555;
+    font-size: 14px;
+}
+
+td span.no-document {
+    color: #999;
+}
+
+td span.uploaded-document {
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    th, td {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .approve-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    input[type="file"] {
+        padding: 8px;
+    }
+}

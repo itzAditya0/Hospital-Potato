@@ -1,0 +1,152 @@
+.reports-page {
+  padding: 20px;
+  background-color: #f8f9fa;
+  max-width: 80%;
+  margin: 0 auto;
+  font-family: "Arial", sans-serif;
+  color: #333;
+}
+
+h2,
+h3 {
+  text-align: center;
+  color: #292b2c;
+  font-weight: bold;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.upload-reports,
+.view-reports {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+form label {
+  font-size: 14px;
+  margin-top: 10px;
+  display: block;
+  color: #495057;
+}
+
+form input[type="text"],
+form input[type="date"],
+form input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead th,
+tbody td {
+  padding: 15px;
+  font-size: 14px;
+  color: #495057;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+thead th {
+  color: white;
+}
+
+tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.view-button {
+  margin-top: 40px;
+  height: 200px;
+  border-radius: 30px;
+  width: 400px;
+  background-color: #a4ffbd;
+  color: #2d421e;
+  font-family: arial;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  border: none;
+  transition: 0.2s;
+  margin-right: 15px;
+}
+
+.view-button:hover {
+  background-color: #a4ffbd;
+  opacity: 0.8;
+  scale: 1.01;
+}
+
+.upload-button {
+  margin-top: 40px;
+  height: 200px;
+  border-radius: 30px;
+  width: 400px;
+  background-color: #cca4ff;
+  color: #242222;
+  font-family: arial;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  border: none;
+  transition: 0.2s;
+  margin-left: 15px;
+}
+
+.upload-button:hover {
+  background-color: #cca4ff;
+  opacity: 0.8;
+  scale: 1.01;
+}
+
+.back-button {
+  display: inline-block;
+  margin: 20px 0;
+  padding: 10px 20px;
+  font-size: 14px;
+
+  color: #ffffff;
+  background-color: #6c757d;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #5a6268;
+
+  transform: translateY(-2px);
+  color: #000000;
+  background-color: white;
+  border: 1px solid #6c757d;
+}
+
+.back-button:active {
+  background-color: #545b62;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(0);
+}

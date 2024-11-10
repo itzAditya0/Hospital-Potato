@@ -1,0 +1,130 @@
+/* DDashboard.css */
+.ddashboard-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+.ddashboard-container h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Overview Cards */
+.overview-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.overview-card-container {
+    flex: 1;
+    min-width: 200px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.overview-card-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.icon-container {
+    font-size: 2em;
+    color: #3498db;
+}
+
+.info-container h4 {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.info-container p {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Main Sections */
+.main-sections {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.recent-activity,
+.task-calendar {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.recent-activity:hover,
+.task-calendar:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.recent-activity h3,
+.task-calendar h3 {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.status-confirmed {
+    color: #2ecc71;
+}
+
+.status-pending {
+    color: #f39c12;
+}
+
+.status-cancelled {
+    color: #e74c3c;
+    text-decoration: line-through;
+}
+
+/* Quick Links */
+.quick-links {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.quick-links h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quick-links ul li {
+    margin-bottom: 10px;
+}
+
+.quick-links ul li a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.quick-links ul li a:hover {
+    color: #1a73e8;
+}

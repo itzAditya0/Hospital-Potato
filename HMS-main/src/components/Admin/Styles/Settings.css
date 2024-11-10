@@ -1,0 +1,18 @@
+.settings__section {
+    margin-bottom: 1.5rem;
+}
+
+.settings__label {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.settings__toggle {
+    display: flex;
+    align-items: center;
+}
+
+.settings__toggle-switch {
+    margin-left: 0.5rem;
+    cursor: pointer;
+}

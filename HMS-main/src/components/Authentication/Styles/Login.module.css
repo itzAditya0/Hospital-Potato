@@ -1,0 +1,120 @@
+/* Login.module.css */
+
+/* Wrapper for the entire login page */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url('/src/assets/login-background.png'); /* Path to your background image */
+  background-size: cover; /* Cover the entire background */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Don't repeat the background image */
+}
+
+/* Container for the login form */
+.loginContainer {
+  background-color: rgba(255, 255, 255, 0.2); /* Slight transparency */
+  padding: 2rem;
+  border-radius: 50px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Header styling */
+.header {
+  font-size: 1.75rem;
+  color: white; /* White color for contrast */
+  font-weight: 700;
+  text-align: center; /* Center the header */
+  margin-bottom: 2rem; /* Space below the header */
+}
+
+/* Container for input fields */
+.inputBox {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+/* Styling for input fields */
+.inputField {
+  width: 100%;
+  padding: 0.75rem;
+  border: none; /* Remove borders */
+  border-radius: 50px; /* Rounded input fields */
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.3); /* Transparent input background */
+  color: white; /* White text */
+}
+
+/* Placeholder text styling */
+.inputField::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* Lighter placeholder text */
+}
+
+/* Icon inside the input field */
+.inputBox i {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.7); /* Lighter icon color */
+}
+
+/* Submit button styling */
+.submit {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.3); /* Match input field background */
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for submit button */
+.submit:hover {
+  background-color: rgba(255, 255, 255, 0.5); /* Slightly more transparent on hover */
+}
+
+/* Flex container for 'Remember Me' and 'Forgot password?' */
+.twoCol {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+/* Styling for 'Remember Me' */
+.twoCol .one {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7); /* Lighter text */
+}
+
+/* Checkbox styling */
+.twoCol .one input {
+  margin-right: 0.5rem;
+}
+
+/* Link styling for 'Forgot password?' */
+.twoCol .two a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+/* Hover effect for 'Forgot password?' link */
+.twoCol .two a:hover {
+  text-decoration: underline;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}

@@ -1,0 +1,84 @@
+.settings-container {
+    padding: 20px;
+    margin: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+h2, h3 {
+    color: #333333;
+}
+
+.settings-section {
+    margin-bottom: 40px;
+}
+
+.settings-section h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.settings-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.settings-form input[type="text"],
+.settings-form input[type="email"],
+.settings-form input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.settings-form input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.settings-form button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.settings-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Save Button Styling */
+.save-button {
+    width: 150px;
+    margin-top: 10px;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+    .settings-container {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    .settings-form input[type="text"],
+    .settings-form input[type="email"],
+    .settings-form input[type="password"] {
+        font-size: 14px;
+    }
+
+    .settings-form button {
+        width: 100%;
+    }
+}

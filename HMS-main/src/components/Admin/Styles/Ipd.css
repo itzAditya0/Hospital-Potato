@@ -1,0 +1,120 @@
+/* Container for Ipd page */
+.opd-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    max-width: 700px;
+    margin: 20px auto;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+/* Filter section container */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #f3f4f6;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Label styling */
+.filter-controls label {
+    font-size: 1em;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Date input styling */
+.date-input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.date-input:hover, .date-input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Clear filter button styling */
+.clear-btn {
+    padding: 8px 15px;
+    background-color: #4a90e2;
+    ;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(255, 94, 94, 0.3);
+}
+
+.clear-btn:hover {
+    background-color: white;
+    transform: translateY(-2px);
+}
+.clear-btn:active {
+    transform: translateY(0);
+}
+
+/* List styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* List item base styling */
+li {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 5px;
+    border-left: 5px solid #4CAF50;
+    font-size: 1.1em;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Styles for each role type */
+.emergency-doctor {
+    border-left-color: #E91E63;
+    font-weight: bold;
+}
+
+.general-doctor {
+    border-left-color: #2196F3;
+}
+
+.nurse {
+    border-left-color: #FF9800;
+}
+
+.cleaning-staff {
+    border-left-color: #9C27B0;
+}
+
+/* Empty state message styling */
+p {
+    color: #777;
+    font-style: italic;
+    text-align: center;
+    margin: 15px 0;
+}

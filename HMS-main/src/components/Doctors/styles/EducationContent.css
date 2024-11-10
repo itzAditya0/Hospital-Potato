@@ -1,0 +1,41 @@
+/* EducationContent.css */
+.education-content-container {
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+    transition: box-shadow 0.3s ease;
+}
+
+.education-content-container:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.article-list {
+    list-style: none;
+    padding: 0;
+}
+
+.article-item {
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9fc;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.article-item:hover {
+    transform: translateY(-3px);
+    background-color: #eef1f5;
+}
+
+.article-item h3 {
+    font-size: 1.3em;
+    color: #333;
+    margin-bottom: 5px;
+}

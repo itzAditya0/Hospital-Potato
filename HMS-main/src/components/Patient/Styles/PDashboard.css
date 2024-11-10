@@ -1,0 +1,318 @@
+/* General Dashboard Styling */
+.dashboard-container {
+  padding: 40px;
+  background: linear-gradient(135deg, #e0f7fa, #e3f2fd);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  transition: background 0.3s ease;
+  max-width: 800px;
+  border-radius: 20px;
+}
+
+/* Card Style */
+.card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  max-width: 300px;
+  height: 300px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  color: #1565c0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Filters Section */
+.filters-container {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.filters-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.filters-button {
+  background-color: #1565c0;
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filters-button:hover {
+  background-color: #0d47a1;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.arrow-down {
+  font-size: 18px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 10px 0;
+  z-index: 1;
+}
+
+.filters-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content button {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #1565c0;
+  padding: 10px 15px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content button:hover {
+  background-color: #e0f7fa;
+}
+
+/* Custom Date Filter */
+.custom-date-filter {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #e1f5fe;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.custom-date-filter label {
+  font-size: 14px;
+  color: #1565c0;
+}
+
+/* Appointment Table */
+.appointment-table {
+  margin-top: 20px;
+}
+
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.modern-table th,
+.modern-table td {
+  padding: 15px 20px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+.modern-table th {
+  background-color: #1565c0;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.modern-table td {
+  background-color: #ffffff;
+  color: #444444;
+  font-size: 16px;
+}
+
+.modern-table tr:hover {
+  background-color: #e3f2fd;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.today {
+  background-color: #c8e6c9;
+}
+
+/* Prescription Section */
+.prescription-section .prescription-overview p {
+  margin: 15px 0;
+  font-size: 16px;
+  color: #555555;
+}
+
+.view-prescription-btn {
+  padding: 12px 30px;
+  background-color: #a4ffbd;
+  color: #2d421e;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 20px;
+  width: 100%;
+  height: 80%;
+  font-weight: bold;
+}
+
+.view-prescription-btn:hover {
+  background-color: #a4ffbd;
+  transform: translateY(-2px);
+}
+
+/* Billing Section */
+.billing-section p {
+  font-size: 16px;
+  color: #555555;
+}
+
+.view-bill-btn {
+  padding: 12px 30px;
+  background-color: #fff598;
+  color: #2d421e;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 20px;
+  width: 100%;
+  height: 80%;
+  font-weight: bold;
+}
+
+.view-bill-btn:hover {
+  background-color: #fff598;
+  transform: translateY(-2px);
+}
+
+/* Patient Info Section */
+.patient-info-section p {
+  font-size: 16px;
+  color: #555555;
+}
+
+.view-details-btn {
+  padding: 12px 30px;
+  background-color: #cca4ff;
+  color: #242222;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 20px;
+  font-weight: bold;
+  width: 100%;
+  height: 80%;
+}
+
+.view-details-btn:hover {
+  background-color: #cca4ff;
+  transform: translateY(-2px);
+}
+
+/* Popup Overlay Styling */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.popup-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.popup-content {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.popup-overlay.active .popup-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  width: 60px;
+
+  color: black;
+  background-color: rgba(255, 0, 0, 0.2);
+  font-family: arial;
+  font-weight: bold;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.3);
+  transition: 0.2s;
+  border-radius: 10px;
+}
+
+.close-btn:hover {
+  background-color: red;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .custom-date-filter {
+    flex-direction: column;
+  }
+
+  .popup-content {
+    width: 90%;
+  }
+}

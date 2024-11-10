@@ -1,0 +1,49 @@
+/* DAppointment.css */
+.dappointment-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.appointments-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.appointments-table th,
+.appointments-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.appointments-table th {
+    background-color: darkgrey;
+    font-weight: bold;
+}
+
+.appointments-table tr:hover td {
+    background-color: #f4f8fc;
+}
+
+.status-confirmed {
+    color: #2ecc71;
+}
+
+.status-pending {
+    color: #f39c12;
+}
+
+.status-cancelled {
+    color: #e74c3c;
+    text-decoration: line-through;
+}
+
+select {
+    padding: 4px;
+    border-radius: 4px;
+}

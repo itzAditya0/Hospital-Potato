@@ -1,0 +1,180 @@
+/* DoctorsDashboard.css */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(135deg, #f1f3f4, #e2e6ea);
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    height: 100vh;
+}
+
+.sidebar-logo {
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #dfe6e9;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    color: #dfe6e9;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li.active a {
+    background-color: #575fcf;
+    transform: scale(1.05);
+}
+
+.profile-section {
+    margin-top: auto;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #dfe6e9;
+}
+
+.profile-name {
+    color: #dfe6e9;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.profile-dropdown {
+    background-color: #444;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item {
+    color: #dfe6e9;
+    display: block;
+    padding: 8px;
+    border-radius: 5px;
+    transition:
+        color 0.3s,
+        background-color 0.3s;
+}
+
+.dropdown-item:hover {
+    color: #ffa502;
+    background-color: #333;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    background: #f5f6fa;
+    margin-left: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+/* Dashboard Components Styling */
+.dashboard-content {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-card-container {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.dashboard-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    width: 250px;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+.main-sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1000px;
+}
+
+.quick-links {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+    }
+    .main-content {
+        margin-left: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+}
