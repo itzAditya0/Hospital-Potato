@@ -4,12 +4,12 @@ const appointmentSchema = new mongoose.Schema(
   {
     patient: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Patient",
+      ref: "User", // Reference the User model for patient
       required: true,
     },
     doctor: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Doctor",
+      ref: "User", // Reference the User model for doctor
       required: true,
     },
     appointmentDate: {
@@ -21,7 +21,7 @@ const appointmentSchema = new mongoose.Schema(
       enum: ["Pending", "Completed", "Canceled"],
       default: "Pending",
     },
-    notes: {
+    reason: {
       type: String,
     },
   },

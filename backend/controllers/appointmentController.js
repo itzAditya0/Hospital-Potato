@@ -1,37 +1,55 @@
 import asyncHandler from "express-async-handler";
 import Appointment from "../models/appointmentModel.js";
 
-// Get all appointments (Admin-only access)
-export const getAllAppointments = asyncHandler(async (req, res) => {
-  const appointments = await Appointment.find();
+// Get all appointments (for admin or general purpose)
+export const getAppointments = asyncHandler(async (req, res) => {
+  const appointments = await Appointment.find()
+    .populate("patient", "name email")
+    .populate("doctor", "name specialty");
   res.json(appointments);
 });
 
-// Get appointments for a specific user (e.g., patient or doctor)
-export const getAppointments = asyncHandler(async (req, res) => {
-  const { user } = req;
-  const appointments = await Appointment.find({ user: user._id });
+// Controller to get all appointments (Admin view)
+export const getAllAppointments = asyncHandler(async (req, res) => {
+  const appointments = await Appointment.find()
+    .populate("patient", "name email")
+    .populate("doctor", "name specialty");
+  res.json(appointments);
+});
+
+// Get all appointments for a specific patient
+export const getAppointmentsForPatient = asyncHandler(async (req, res) => {
+  const appointments = await Appointment.find({ patient: req.user._id })
+    .populate("doctor", "name specialty")
+    .exec();
+  res.json(appointments);
+});
+
+// Get all appointments for a specific doctor
+export const getAppointmentsForDoctor = asyncHandler(async (req, res) => {
+  const appointments = await Appointment.find({ doctor: req.user._id })
+    .populate("patient", "name age")
+    .exec();
   res.json(appointments);
 });
 
 // Create a new appointment
 export const createAppointment = asyncHandler(async (req, res) => {
-  const { doctorId, patientId, date, time, notes } = req.body;
+  const { doctorId, patientId, appointmentDate, reason } = req.body;
 
-  const newAppointment = await Appointment.create({
-    doctorId,
-    patientId,
-    date,
-    time,
-    notes,
+  if (!doctorId || !patientId || !appointmentDate) {
+    res.status(400);
+    throw new Error("Doctor, patient, and appointment date are required.");
+  }
+
+  const appointment = await Appointment.create({
+    doctor: doctorId,
+    patient: patientId,
+    appointmentDate,
+    reason,
   });
 
-  if (newAppointment) {
-    res.status(201).json(newAppointment);
-  } else {
-    res.status(400);
-    throw new Error("Invalid appointment data");
-  }
+  res.status(201).json(appointment);
 });
 
 // Update an appointment
@@ -39,9 +57,10 @@ export const updateAppointment = asyncHandler(async (req, res) => {
   const appointment = await Appointment.findById(req.params.id);
 
   if (appointment) {
-    appointment.date = req.body.date || appointment.date;
-    appointment.time = req.body.time || appointment.time;
-    appointment.notes = req.body.notes || appointment.notes;
+    appointment.appointmentDate =
+      req.body.appointmentDate || appointment.appointmentDate;
+    appointment.reason = req.body.reason || appointment.reason;
+    appointment.status = req.body.status || appointment.status;
 
     const updatedAppointment = await appointment.save();
     res.json(updatedAppointment);

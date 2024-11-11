@@ -1,31 +1,34 @@
+// controllers/adminController.js
 import asyncHandler from "express-async-handler";
+import bcrypt from "bcryptjs";
 import User from "../models/userModel.js";
 
-// Get all doctors
+// getAllDoctors function
 export const getAllDoctors = asyncHandler(async (req, res) => {
   const doctors = await User.find({ role: "doctor" }).select("-password");
   res.json(doctors);
 });
 
-// Get all patients
+// Controller function to get all patients
 export const getAllPatients = asyncHandler(async (req, res) => {
   const patients = await User.find({ role: "patient" }).select("-password");
   res.json(patients);
 });
 
-// Delete user (Admin only)
-export const deleteUser = async (req, res) => {
-  // Logic for deleting a user
-  try {
-    const userId = req.params.id;
-    // Delete user logic here
-    res.status(200).json({ message: "User deleted successfully" });
-  } catch (error) {
-    res.status(500).json({ message: "Failed to delete user", error });
-  }
-};
+// Admin-only: Delete a user by ID
+export const deleteUser = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
 
-// Register a doctor (Admin only)
+  if (user) {
+    await user.deleteOne(); // Use deleteOne() instead of remove()
+    res.json({ message: "User deleted successfully" });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
+});
+
+// Admin-only: Register a new doctor
 export const adminRegisterDoctor = asyncHandler(async (req, res) => {
   const { name, email, username, password } = req.body;
 
@@ -54,26 +57,13 @@ export const adminRegisterDoctor = asyncHandler(async (req, res) => {
   res.status(201).json(doctor);
 });
 
-// Get all users
+// Admin-only: Get all users
 export const getAllUsers = asyncHandler(async (req, res) => {
   const users = await User.find({});
   res.json(users);
 });
 
-// Delete a user by ID
-export const deleteUser = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.params.id);
-
-  if (user) {
-    await user.remove();
-    res.json({ message: "User removed" });
-  } else {
-    res.status(404);
-    throw new Error("User not found");
-  }
-});
-
-// Update user role
+// Admin-only: Update user role by ID
 export const updateUserRole = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id);
 

@@ -13,11 +13,11 @@ const router = express.Router();
 // Admin route to get all appointments
 router.get("/all", protect, authorizeRoles("admin"), getAllAppointments);
 
-// Route for users (e.g., patients or doctors) to get their appointments
-router.get("/", protect, getAppointments);
+// Set up route for fetching appointments
+router.get("/", protect, authorizeRoles("patient", "doctor"), getAppointments);
 
 // Create a new appointment (e.g., for doctors or admin)
-router.post("/", protect, authorizeRoles("doctor", "admin"), createAppointment);
+router.post("/", protect, createAppointment);
 
 // Update an existing appointment
 router.put(
