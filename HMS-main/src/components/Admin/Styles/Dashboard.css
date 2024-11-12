@@ -3,11 +3,12 @@
   padding: 40px;
   background: linear-gradient(135deg, #e0f7fa, #e3f2fd);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+
   gap: 20px;
   font-family: "Helvetica Neue", Arial, sans-serif;
   transition: background 0.3s ease;
-  max-width: 800px;
+  margin-right: 0px;
   border-radius: 20px;
 }
 
@@ -238,7 +239,6 @@
   background-color: #e0f7fa;
 }
 
-
 /* Billing Section */
 .billing-section .view-bill-btn {
   padding: 12px 30px;
@@ -368,5 +368,4 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
- 
 }

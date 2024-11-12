@@ -97,7 +97,7 @@ function PatientPage() {
                     <FaSearch className="search-icon" />
                     <input
                         type="text"
-                        placeholder="Search by patient name..."
+                        placeholder=" 🔍 Search by patient name..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         className="search-input"

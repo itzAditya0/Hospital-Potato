@@ -1,130 +1,378 @@
 /* DDashboard.css */
 .ddashboard-container {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .ddashboard-container h2 {
-    font-size: 2.2em;
-    margin-bottom: 20px;
-    color: #333;
+  font-size: 1.8em;
+  color: #333;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Top Section Styling */
+.top-section {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+
+.top-section > .overview-cards {
+  display: flex;
+  flex: 1;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 /* Overview Cards */
-.overview-cards {
-    display: flex;
-    gap: 20px;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-}
-
 .overview-card-container {
-    flex: 1;
-    min-width: 200px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+  flex: 1;
+  min-width: 150px;
+  max-width: 240px; /* Restrict card width */
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 .overview-card-container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.icon-container {
-    font-size: 2em;
-    color: #3498db;
-}
-
-.info-container h4 {
-    font-size: 1.2em;
-    color: #555;
-}
-
-.info-container p {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #333;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Main Sections */
 .main-sections {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .recent-activity,
 .task-calendar {
-    flex: 1;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-}
-
-.recent-activity:hover,
-.task-calendar:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px; /* Constrain section width */
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
 }
 
 .recent-activity h3,
 .task-calendar h3 {
-    font-size: 1.6em;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.status-confirmed {
-    color: #2ecc71;
-}
-
-.status-pending {
-    color: #f39c12;
-}
-
-.status-cancelled {
-    color: #e74c3c;
-    text-decoration: line-through;
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 /* Quick Links */
 .quick-links {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-.quick-links h3 {
-    font-size: 1.5em;
-    color: #333;
-    margin-bottom: 10px;
+  width: 100%;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+  text-align: center;
 }
 
 .quick-links ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .quick-links ul li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .quick-links ul li a {
-    color: #3498db;
-    text-decoration: none;
-    transition: color 0.3s;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
 .quick-links ul li a:hover {
-    color: #1a73e8;
+  color: #1a73e8;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .top-section,
+  .main-sections,
+  .overview-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+}
+/* DDashboard.css */
+.ddashboard-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.ddashboard-container h2 {
+  font-size: 1.8em;
+  color: #333;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Top Section Styling */
+.top-section {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+
+.top-section > .overview-cards {
+  display: flex;
+  flex: 1;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Overview Cards */
+.overview-card-container {
+  flex: 1;
+  min-width: 150px;
+  max-width: 240px; /* Restrict card width */
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.overview-card-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Sections */
+.main-sections {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.recent-activity,
+.task-calendar {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px; /* Constrain section width */
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.recent-activity h3,
+.task-calendar h3 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Quick Links */
+.quick-links {
+  width: 100%;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+  text-align: center;
+}
+
+.quick-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.quick-links ul li {
+  margin-bottom: 10px;
+}
+
+.quick-links ul li a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.quick-links ul li a:hover {
+  color: #1a73e8;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .top-section,
+  .main-sections,
+  .overview-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+}
+/* DDashboard.css */
+.ddashboard-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.ddashboard-container h2 {
+  font-size: 1.8em;
+  color: #333;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Top Section Styling */
+.top-section {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+
+.top-section > .overview-cards {
+  display: flex;
+  flex: 1;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Overview Cards */
+.overview-card-container {
+  flex: 1;
+  min-width: 150px;
+  max-width: 240px; /* Restrict card width */
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.overview-card-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Sections */
+.main-sections {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.recent-activity,
+.task-calendar {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px; /* Constrain section width */
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.recent-activity h3,
+.task-calendar h3 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Quick Links */
+.quick-links {
+  width: 100%;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+  text-align: center;
+}
+
+.quick-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.quick-links ul li {
+  margin-bottom: 10px;
+}
+
+.quick-links ul li a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.quick-links ul li a:hover {
+  color: #1a73e8;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .top-section,
+  .main-sections,
+  .overview-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
 }

@@ -1,180 +1,210 @@
-/* DoctorsDashboard.css */
-.dashboard-container {
-    display: flex;
-    height: 100vh;
-    background: linear-gradient(135deg, #f1f3f4, #e2e6ea);
+/* General styling */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f0f2f5; /* Light background for the main area */
+  margin: 0;
+  padding: 0;
+}
+
+/* Dashboard container */
+.doctor-dashboard-container {
+  display: flex;
+  min-height: 100vh; /* Full height for the dashboard */
 }
 
 /* Sidebar Styling */
 .sidebar {
-    width: 250px;
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    height: 100vh;
+  width: 240px; /* Fixed width for sidebar */
+  background-color: #ffffff; /* White background for sidebar */
+  padding: 0;
+  position: fixed; /* Fixed position */
+  height: 100vh; /* Full height */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex;
+  flex-direction: column;
+  z-index: 1000; /* Ensure it stays above other content */
 }
 
 .sidebar-logo {
-    text-align: center;
-    font-size: 1.6em;
-    font-weight: bold;
-    color: #dfe6e9;
-    margin-bottom: 20px;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0; /* Divider between logo and navigation */
 }
 
+.sidebar-logo h2 {
+  font-size: 24px; /* Logo font size */
+  color: #333; /* Logo color */
+  margin: 0;
+}
+
+/* Sidebar Links */
 .sidebar ul {
-    list-style: none;
-    padding: 0;
+  list-style-type: none; /* Remove default list styling */
+  padding: 0;
+  margin: 0;
 }
 
 .sidebar ul li {
-    margin-bottom: 15px;
+  margin: 0;
 }
 
 .sidebar ul li a {
-    color: #dfe6e9;
-    text-decoration: none;
-    padding: 10px;
-    display: block;
-    border-radius: 5px;
-    transition:
-        background-color 0.3s ease,
-        transform 0.3s ease;
+  color: #6b6b6b; /* Softer grey for non-active links */
+  text-decoration: none;
+  font-size: 18px; /* Font size for links */
+  padding: 20px 30px; /* Padding for clickable area */
+  display: block;
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  border-left: 3px solid transparent; /* For active effect */
 }
 
 .sidebar ul li a:hover,
-.sidebar ul li.active a {
-    background-color: #575fcf;
-    transform: scale(1.05);
+.sidebar ul li a.active {
+  background-color: #f7f8fa; /* Light hover background */
+  color: #333; /* Darker color on hover */
+  border-left: 3px solid #007bff; /* Blue left border for active */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Shadow effect on hover */
 }
 
+/* Highlight the active section */
+.sidebar ul li.active a {
+  background-color: #ffffff; /* Active link background */
+  color: #007bff; /* Active link color */
+  font-weight: bold; /* Highlight the active link */
+  border-left: 4px solid #007bff; /* Left border for active link */
+}
+
+/* Profile Section */
 .profile-section {
-    margin-top: auto;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  margin-top: auto; /* Push profile section to the bottom */
+  text-align: center; /* Center align profile section */
+  padding: 20px; /* Padding for profile section */
+  border-top: 1px solid #f0f0f0; /* Divider above profile section */
+}
+
+.profile {
+  display: flex; /* Flexbox for profile layout */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  cursor: pointer; /* Pointer cursor on hover */
+  padding: 10px; /* Padding for profile */
+  transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.profile:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* Light hover effect */
+  border-radius: 8px; /* Rounded corners on hover */
 }
 
 .profile-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid #dfe6e9;
+  width: 40px; /* Profile image size */
+  height: 40px; /* Profile image size */
+  border-radius: 50%; /* Circular profile image */
+  margin-right: 10px; /* Space between image and name */
+  border: 2px solid #dfe6e9; /* Border for profile image */
 }
 
 .profile-name {
-    color: #dfe6e9;
-    font-size: 1em;
-    font-weight: bold;
+  font-size: 1em; /* Font size for profile name */
+  font-weight: bold; /* Bold profile name */
+  color: #333; /* Color for profile name */
 }
 
+/* Profile Dropdown */
 .profile-dropdown {
-    background-color: #444;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  position: absolute; /* Position dropdown relative to profile */
+  background-color: #ffffff; /* White background for dropdown */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for dropdown */
+  border-radius: 4px; /* Rounded corners */
+  margin-top: 10px; /* Space between profile and dropdown */
+  z-index: 1001; /* Ensure dropdown is above other content */
 }
 
 .dropdown-item {
-    color: #dfe6e9;
-    display: block;
-    padding: 8px;
-    border-radius: 5px;
-    transition:
-        color 0.3s,
-        background-color 0.3s;
+  display: block; /* Block display for dropdown items */
+  padding: 10px 20px; /* Padding for dropdown items */
+  color: #333; /* Text color for dropdown items */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s; /* Smooth background transition */
 }
 
 .dropdown-item:hover {
-    color: #ffa502;
-    background-color: #333;
+  background-color: #f7f8fa; /* Light background on hover */
 }
 
 /* Main Content */
 .main-content {
-    flex: 1;
-    padding: 30px;
-    background: #f5f6fa;
-    margin-left: 270px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: auto;
+  flex: 1; /* Take remaining space */
+  padding: 30px; /* Padding for main content */
+  background-color: #ffffff; /* White background for main content */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Slight shadow for the content area */
+  margin: 20px; /* Margin around main content */
+  margin-left: 260px; /* Space for sidebar */
+  transition: margin-left 0.3s ease; /* Smooth transition for mobile sidebar */
 }
 
-/* Dashboard Components Styling */
-.dashboard-content {
-    width: 100%;
-    max-width: 1100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+/* Adjustments for smaller screens */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 200px; /* Reduced width for smaller screens */
+  }
 
-.dashboard-card-container {
-    width: 100%;
-    max-width: 800px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.dashboard-card {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-    width: 250px;
-}
-
-.dashboard-card:hover {
-    transform: translateY(-5px);
-}
-
-.main-sections {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    max-width: 1000px;
-}
-
-.quick-links {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    width: 100%;
-    max-width: 300px;
+  .main-content {
+    margin-left: 220px; /* Adjust content margin for smaller sidebar */
+  }
 }
 
 @media (max-width: 768px) {
-    .sidebar {
-        width: 60px;
-    }
-    .main-content {
-        margin-left: 80px;
-    }
+  .sidebar {
+    width: 60px; /* Smaller sidebar on mobile screens */
+  }
+
+  .sidebar ul li a {
+    padding: 10px; /* Reduce padding for mobile */
+    text-align: center; /* Center text for mobile */
+  }
+
+  .sidebar ul li a span {
+    display: none; /* Hide text and show icons on mobile */
+  }
+
+  .main-content {
+    margin-left: 80px; /* Adjust content margin for smaller sidebar */
+  }
 }
 
+/* Responsive adjustments */
 @media (max-width: 480px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-    .main-content {
-        margin-left: 0;
-        padding: 20px;
-    }
+  .sidebar {
+    width: 100%; /* Sidebar becomes full-width on smaller screens */
+    height: auto; /* Auto height for sidebar */
+    position: relative; /* Relative position */
+    box-shadow: none; /* Remove shadow */
+  }
+
+  .sidebar ul {
+    display: flex; /* Flexbox for horizontal layout */
+    flex-direction: row; /* Row direction for sidebar items */
+    justify-content: space-around; /* Space items evenly */
+  }
+
+  .main-content {
+    margin-left: 0; /* No space for sidebar */
+    margin-top: 20px; /* Margin on top */
+  }
+}
+
+/* Logout button styling */
+.logout {
+  margin-top: auto; /* Push logout button to the bottom */
+  padding: 20px 30px; /* Padding for logout button */
+  color: #b4b4b4; /* Grey color for logout */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.logout:hover {
+  color: red; /* Change color on hover */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Shadow effect on hover */
 }

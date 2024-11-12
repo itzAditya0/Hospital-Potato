@@ -1,23 +1,40 @@
-// models/reportModel.js
 import mongoose from "mongoose";
 
-const reportSchema = new mongoose.Schema(
+const reportSchema = mongoose.Schema(
   {
-    patient: {
+    patientId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Patient",
+      ref: "User",
       required: true,
     },
-    doctor: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Doctor",
+    description: {
+      type: String,
       required: true,
     },
-    reportDetails: { type: String, required: true },
-    approved: { type: Boolean, default: false },
+    reportType: {
+      type: String,
+      required: true,
+    },
+    filePath: {
+      type: String,
+      required: true,
+    },
+    fileName: {
+      type: String,
+      required: true,
+    },
+    fileType: {
+      type: String,
+      required: true,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
   },
   { timestamps: true },
 );
 
 const Report = mongoose.model("Report", reportSchema);
+
 export default Report;

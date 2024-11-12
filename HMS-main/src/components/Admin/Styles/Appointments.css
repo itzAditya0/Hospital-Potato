@@ -1,172 +1,214 @@
 /* General Styling */
 .appointments-content {
-    padding: 20px;
-    font-family: Arial, sans-serif;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Header */
 .appointments-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .appointments-header h2 {
-    font-size: 24px;
-    color: #333;
+  font-size: 28px;
+  color: #333;
+  margin: 0;
 }
 
 /* View Toggle Buttons */
 .view-toggle-buttons {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 15px;
 }
 
 .view-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4a90e2;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 40px;
+  height: 20px;
+  border-radius: 30px;
+  width: 141px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  min-width: 150px;
+  text-align: center;
 }
 
 .view-button.active {
-    background-color: #0d47a1;
-    transform: scale(1.05);
+  background-color: #0d47a1;
+  transform: scale(1.05);
 }
 
 .view-button:hover {
-    background-color: #3a7bd5;
+  background-color: #3a7bd5;
 }
 
 /* Search and Filter */
 .search-filter {
-    margin-top: 15px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 15px;
 }
 
 .search-bar {
-    padding: 10px 15px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 25px;
-    width: 250px;
-    transition: box-shadow 0.3s ease;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  width: 100%;
+  max-width: 300px;
+  transition: box-shadow 0.3s ease;
 }
 
 .search-bar:focus {
-    outline: none;
-    box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
+  outline: none;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
 }
 
 /* Filter Button and Dropdown */
 .filter-container {
-    position: relative;
+  position: relative;
 }
 
 .filter-button {
-    background-color: #1565c0;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #1565c0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  min-width: 150px;
+  text-align: center;
 }
 
 .filter-button:hover {
-    background-color: #0d47a1;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-color: #0d47a1;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .filter-dropdown {
-    position: absolute;
-    top: 50px; /* Adjusts the dropdown to display directly below the filter button */
-    left: 0;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 10px 0;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 100;
-    width: 200px;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 5px 0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  min-width: 180px;
 }
 
 .filter-dropdown button {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    color: #1565c0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    text-align: left;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  color: #1565c0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-align: left;
 }
 
 .filter-dropdown button:hover {
-    background-color: #f0f8ff;
+  background-color: #f0f8ff;
 }
 
 /* Table */
 .appointments__table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
-.appointments__table th, .appointments__table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+.appointments__table th,
+.appointments__table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 15px;
 }
 
 .appointments__table th {
-    background-color: #f9f9f9;
-    color: #333;
-    font-weight: bold;
+  background-color: #f9f9f9;
+  color: #333;
+  font-weight: bold;
 }
 
 .appointments__table tbody tr:hover {
-    background-color: #f4f8ff;
+  background-color: #f4f8ff;
 }
 
-/* Status */
+/* Status Styling */
 .appointments__status--pending {
-    background-color: #ffc107;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 20px;
-    font-weight: bold;
+  background-color: #ffc107;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-weight: bold;
 }
 
 .appointments__status--completed {
-    background-color: #28a745;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 20px;
-    font-weight: bold;
+  background-color: #28a745;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-weight: bold;
 }
 
 /* Action Buttons */
-.button--status-toggle, .button--reschedule {
-    background-color: #1565c0;
-    color: white;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+.button--status-toggle,
+.button--reschedule {
+  background-color: #1565c0;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, transform 0.2s;
+  margin: 5px 0;
 }
 
-.button--status-toggle:hover, .button--reschedule:hover {
-    background-color: #0d47a1;
-    transform: scale(1.05);
+.button--status-toggle:hover,
+.button--reschedule:hover {
+  background-color: #0d47a1;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .appointments-header h2 {
+    font-size: 22px;
+  }
+  .view-toggle-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .search-filter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .filter-button,
+  .view-button {
+    width: 100%;
+  }
+  .appointments__table th,
+  .appointments__table td {
+    font-size: 14px;
+  }
 }

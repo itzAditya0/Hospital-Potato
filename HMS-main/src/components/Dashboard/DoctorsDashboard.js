@@ -5,7 +5,8 @@ import DDashboard from "../Doctors/DDashboard";
 import DPatients from "../Doctors/DPatients";
 import DAppointment from "../Doctors/DAppointment";
 import DDoctors from "../Doctors/DDoctors";
-import Settings from "../Doctors/Settings"; // Ensure this import is correct
+import IPDPage from "../Doctors/IPDPatients"; // Import the IPDPage component
+import Settings from "../Doctors/Settings";
 
 function DoctorDashboard() {
   const location = useLocation();
@@ -26,6 +27,9 @@ function DoctorDashboard() {
       case "/doctors/doctors":
         setActiveSection("doctors");
         break;
+      case "/doctors/ipd": // New case for IPD page
+        setActiveSection("ipd");
+        break;
       case "/doctors/education-content":
         setActiveSection("education-content");
         break;
@@ -42,7 +46,7 @@ function DoctorDashboard() {
   };
 
   return (
-    <div className="dashboard-container">
+    <div className="doctor-dashboard-container">
       <aside className="sidebar">
         <div className="sidebar-logo">
           <h2>JHC Clinic</h2>
@@ -55,7 +59,10 @@ function DoctorDashboard() {
             <Link to="/doctors/patients">Patients</Link>
           </li>
           <li className={activeSection === "appointments" ? "active" : ""}>
-            <Link to="/doctors/appointments">Appointments</Link>
+            <Link to="/doctors/appointments">Appointments / OPD</Link>
+          </li>
+          <li className={activeSection === "ipd" ? "active" : ""}>
+            <Link to="/doctors/ipd">IPD</Link> {/* Link to IPD page */}
           </li>
           <li className={activeSection === "doctors" ? "active" : ""}>
             <Link to="/doctors/doctors">Doctors</Link>
@@ -92,13 +99,13 @@ function DoctorDashboard() {
           <Route exact path="/doctors/patients" component={DPatients} />
           <Route exact path="/doctors/appointments" component={DAppointment} />
           <Route exact path="/doctors/doctors" component={DDoctors} />
+          <Route exact path="/doctors/ipd" component={IPDPage} /> {/* IPD Route */}
           <Route
             exact
             path="/doctors/education-content"
             render={() => <h2>Education Content Page</h2>}
           />
-          <Route exact path="/doctors/settings" component={Settings} />{" "}
-          {/* Updated to use Settings */}
+          <Route exact path="/doctors/settings" component={Settings} />
         </Switch>
       </main>
     </div>

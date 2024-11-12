@@ -24,9 +24,11 @@ const doctorSchema = new mongoose.Schema(
     },
     availableDays: {
       type: [String], // Days like ['Monday', 'Wednesday']
+      required: true,
     },
     availableTime: {
       type: String, // e.g., '10:00 AM - 5:00 PM'
+      required: true,
     },
     appointments: [
       {

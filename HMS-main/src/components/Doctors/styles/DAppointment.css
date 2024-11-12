@@ -1,17 +1,97 @@
-/* DAppointment.css */
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f5f7fa;
+    --text-color: #333;
+    --table-header-bg: #3b5998;
+    --button-bg: linear-gradient(135deg, #4a90e2, #357ab8);
+    --button-hover-bg: #357ab8;
+    --button-text: #ffffff;
+}
+
+/* Main Container */
 .dappointment-container {
     font-family: Arial, sans-serif;
     padding: 20px;
     max-width: 800px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: var(--secondary-color);
     border-radius: 8px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
+.dappointment-container h3 {
+    color: var(--primary-color);
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Filter and Search Section */
+.filter-search-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    width: 220px;
+    font-size: 1em;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.custom-select-container {
+    position: relative;
+    width: 180px;
+}
+
+.filter-select {
+    appearance: none;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    background-color: #fff;
+    width: 100%;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.filter-select:hover,
+.filter-select:focus {
+    border-color: var(--primary-color);
+}
+
+.custom-select-container::after {
+    content: "▼";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    font-size: 0.8em;
+    color: #aaa;
+    pointer-events: none;
+}
+
+/* Appointments Table */
 .appointments-table {
     width: 100%;
     border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .appointments-table th,
@@ -22,14 +102,17 @@
 }
 
 .appointments-table th {
-    background-color: darkgrey;
+    background-color: var(--table-header-bg);
+    color: var(--button-text);
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 .appointments-table tr:hover td {
     background-color: #f4f8fc;
 }
 
+/* Status Colors */
 .status-confirmed {
     color: #2ecc71;
 }
@@ -43,7 +126,73 @@
     text-decoration: line-through;
 }
 
+/* Select Dropdown in Table */
 select {
     padding: 4px;
     border-radius: 4px;
+}
+
+/* Date Picker Container */
+.date-picker-container input {
+    border-radius: 25px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+    width: 120px;
+}
+
+.date-picker-container input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+}
+
+.modal-content h4 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    margin: 5px 0;
+}
+
+.close-details-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.close-details-btn:hover {
+    background-color: var(--button-hover-bg);
 }
