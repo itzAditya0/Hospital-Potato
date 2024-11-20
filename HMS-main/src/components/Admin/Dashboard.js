@@ -1,41 +1,11 @@
-import React, { useState, useMemo } from "react";
+// src/Admin/AdminDashboard.js
+import React, { useState, useEffect, useMemo } from "react";
+import api from "../../api";
 import "./Styles/Dashboard.css";
 import { FaFilter } from "react-icons/fa";
 
-const appointments = [
-  {
-    date: "2023-12-10",
-    name: "Doctor Appointment",
-    time: "10:00 AM",
-    doctor: "Dr. John Doe",
-  },
-  {
-    date: "2023-12-20",
-    name: "Checkup",
-    time: "02:00 PM",
-    doctor: "Dr. Jane Smith",
-  },
-  {
-    date: "2024-01-05",
-    name: "Follow-up",
-    time: "11:30 AM",
-    doctor: "Dr. John Doe",
-  },
-  {
-    date: "2023-09-20",
-    name: "Past Checkup",
-    time: "09:30 AM",
-    doctor: "Dr. John Doe",
-  },
-  {
-    date: "2024-02-15",
-    name: "Dental Cleaning",
-    time: "09:00 AM",
-    doctor: "Dr. Emily Clark",
-  },
-];
-
-function PDashboard() {
+function AdminDashboard() {
+  const [appointments, setAppointments] = useState([]);
   const [filter, setFilter] = useState("day");
   const [prescriptionPopup, setPrescriptionPopup] = useState(false);
   const [patientListPopup, setPatientListPopup] = useState(false);
@@ -44,6 +14,18 @@ function PDashboard() {
   const [upcomingTestsPopup, setUpcomingTestsPopup] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const today = new Date().toISOString().split("T")[0];
+
+  useEffect(() => {
+    const fetchAppointments = async () => {
+      try {
+        const response = await api.get("/appointments");
+        setAppointments(response.data);
+      } catch (error) {
+        console.error("Error fetching appointments:", error);
+      }
+    };
+    fetchAppointments();
+  }, []);
 
   const filterAppointments = useMemo(() => {
     const now = new Date();
@@ -55,18 +37,18 @@ function PDashboard() {
         startOfWeek.setDate(now.getDate() - now.getDay());
         return appointments.filter(
           (app) =>
-            new Date(app.date) >= startOfWeek && new Date(app.date) <= now
+            new Date(app.date) >= startOfWeek && new Date(app.date) <= now,
         );
       case "month":
         const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
         return appointments.filter(
           (app) =>
-            new Date(app.date) >= startOfMonth && new Date(app.date) <= now
+            new Date(app.date) >= startOfMonth && new Date(app.date) <= now,
         );
       default:
         return appointments;
     }
-  }, [filter]);
+  }, [filter, appointments]);
 
   const handleFilterChange = (newFilter) => {
     setFilter(newFilter);
@@ -187,16 +169,27 @@ function PDashboard() {
 
       {/* Popups for each section */}
       {prescriptionPopup && (
-        <div className="popup-overlay active" onClick={() => setPrescriptionPopup(false)}>
+        <div
+          className="popup-overlay active"
+          onClick={() => setPrescriptionPopup(false)}
+        >
           <div className="popup-content">
             <h3>Prescription Details</h3>
-            <button onClick={() => setPrescriptionPopup(false)} className="close-btn">X</button>
+            <button
+              onClick={() => setPrescriptionPopup(false)}
+              className="close-btn"
+            >
+              X
+            </button>
           </div>
         </div>
       )}
 
       {patientListPopup && (
-        <div className="popup-overlay active" onClick={() => setPatientListPopup(false)}>
+        <div
+          className="popup-overlay active"
+          onClick={() => setPatientListPopup(false)}
+        >
           <div className="popup-content">
             <h3>Patient List</h3>
             <ul>
@@ -205,13 +198,21 @@ function PDashboard() {
               <li>Emily Clark</li>
               <li>Michael Johnson</li>
             </ul>
-            <button onClick={() => setPatientListPopup(false)} className="close-btn">X</button>
+            <button
+              onClick={() => setPatientListPopup(false)}
+              className="close-btn"
+            >
+              X
+            </button>
           </div>
         </div>
       )}
 
       {doctorListPopup && (
-        <div className="popup-overlay active" onClick={() => setDoctorListPopup(false)}>
+        <div
+          className="popup-overlay active"
+          onClick={() => setDoctorListPopup(false)}
+        >
           <div className="popup-content">
             <h3>Doctor List</h3>
             <ul>
@@ -220,13 +221,21 @@ function PDashboard() {
               <li>Dr. Emily Clark</li>
               <li>Dr. Michael Scott</li>
             </ul>
-            <button onClick={() => setDoctorListPopup(false)} className="close-btn">X</button>
+            <button
+              onClick={() => setDoctorListPopup(false)}
+              className="close-btn"
+            >
+              X
+            </button>
           </div>
         </div>
       )}
 
       {labResultsPopup && (
-        <div className="popup-overlay active" onClick={() => setLabResultsPopup(false)}>
+        <div
+          className="popup-overlay active"
+          onClick={() => setLabResultsPopup(false)}
+        >
           <div className="popup-content">
             <h3>Lab Results</h3>
             <ul>
@@ -234,20 +243,33 @@ function PDashboard() {
               <li>X-Ray: Clear</li>
               <li>Urine Test: Normal</li>
             </ul>
-            <button onClick={() => setLabResultsPopup(false)} className="close-btn">X</button>
+            <button
+              onClick={() => setLabResultsPopup(false)}
+              className="close-btn"
+            >
+              X
+            </button>
           </div>
         </div>
       )}
 
       {upcomingTestsPopup && (
-        <div className="popup-overlay active" onClick={() => setUpcomingTestsPopup(false)}>
+        <div
+          className="popup-overlay active"
+          onClick={() => setUpcomingTestsPopup(false)}
+        >
           <div className="popup-content">
             <h3>Upcoming Tests</h3>
             <ul>
               <li>Blood Test on 2023-12-12</li>
               <li>Ultrasound on 2023-12-15</li>
             </ul>
-            <button onClick={() => setUpcomingTestsPopup(false)} className="close-btn">X</button>
+            <button
+              onClick={() => setUpcomingTestsPopup(false)}
+              className="close-btn"
+            >
+              X
+            </button>
           </div>
         </div>
       )}
@@ -255,4 +277,4 @@ function PDashboard() {
   );
 }
 
-export default PDashboard;
+export default AdminDashboard;

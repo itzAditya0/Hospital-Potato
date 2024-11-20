@@ -1,38 +1,58 @@
 // src/Doctor/TaskList.js
-import React from "react";
+import React, { useEffect, useState } from "react";
+import api from "../../api";
 import "./styles/TaskList.css";
 
 const TaskList = () => {
-    const tasks = [
-        { title: "Review lab results", priority: "High", completed: false },
-        {
-            title: "Follow up with patients",
-            priority: "Medium",
-            completed: true,
-        },
-        {
-            title: "Prepare discharge summary",
-            priority: "Low",
-            completed: false,
-        },
-    ];
+  const [tasks, setTasks] = useState([]);
 
-    return (
-        <div className="task-list-container">
-            <h2>Tasks</h2>
-            <ul className="task-list">
-                {tasks.map((task, index) => (
-                    <li
-                        key={index}
-                        className={`task-item ${task.priority.toLowerCase()}`}
-                    >
-                        {task.title} -{" "}
-                        {task.completed ? "Completed" : "Pending"}
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        const response = await api.get("/doctors/tasks");
+        setTasks(response.data);
+      } catch (error) {
+        console.error("Error fetching tasks:", error);
+      }
+    };
+    fetchTasks();
+  }, []);
+
+  const handleTaskCompletion = async (taskId) => {
+    try {
+      await api.put(`/doctors/tasks/${taskId}/complete`);
+      setTasks((prevTasks) =>
+        prevTasks.map((task) =>
+          task.id === taskId ? { ...task, completed: true } : task,
+        ),
+      );
+    } catch (error) {
+      console.error("Error updating task status:", error);
+    }
+  };
+
+  return (
+    <div className="task-list-container">
+      <h2>Tasks for Today</h2>
+      <ul className="task-list">
+        {tasks.map((task) => (
+          <li
+            key={task.id}
+            className={`task-item ${task.completed ? "completed" : ""}`}
+          >
+            <span>{task.title}</span>
+            <button
+              onClick={() => handleTaskCompletion(task.id)}
+              disabled={task.completed}
+              className="complete-task-btn"
+            >
+              {task.completed ? "Completed" : "Mark as Done"}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default TaskList;

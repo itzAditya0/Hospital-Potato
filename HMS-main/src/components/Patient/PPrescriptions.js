@@ -1,85 +1,49 @@
-import React, { useState, useEffect } from "react";
+// src/components/Patient/PPrescriptions.js
+import React, { useState, useEffect, useContext } from "react";
+import api from "../../api";
 import "./Styles/PPrescriptions.css";
+import { AuthContext } from "../../context/AuthContext";
 
-const Prescriptions = () => {
-  const [visits, setVisits] = useState([
-    {
-      id: 1,
-      doctor: "Dr. Smith",
-      visitDate: "2024-01-10",
-      prescriptions: [
-        {
-          id: 1,
-          medicine: "Paracetamol",
-          status: "Active",
-          duration: 7,
-          startDate: new Date(),
-          tookDose: false,
-        },
-      ],
-    },
-    {
-      id: 2,
-      doctor: "Dr. John",
-      visitDate: "2024-02-15",
-      prescriptions: [
-        {
-          id: 2,
-          medicine: "Ibuprofen",
-          status: "Active",
-          duration: 3,
-          startDate: new Date(),
-          tookDose: false,
-        },
-      ],
-    },
-  ]);
+const PPrescriptions = () => {
+  const { user } = useContext(AuthContext);
+  const [visits, setVisits] = useState([]);
   const [selectedVisit, setSelectedVisit] = useState(null);
 
   useEffect(() => {
-    if (selectedVisit) {
-      const calculateRemainingDays = () => {
-        setVisits((prevVisits) =>
-          prevVisits.map((visit) => ({
-            ...visit,
-            prescriptions: visit.prescriptions.map((prescription) => {
-              const currentDate = new Date();
-              const startDate = new Date(prescription.startDate);
-              const daysPassed = Math.floor(
-                (currentDate - startDate) / (1000 * 3600 * 24)
-              );
-              const remainingDuration = prescription.duration - daysPassed;
-              return remainingDuration > 0
-                ? { ...prescription, duration: remainingDuration }
-                : {
-                    ...prescription,
-                    duration: 0,
-                    status: "Inactive",
-                    tookDose: true,
-                  };
-            }),
-          }))
-        );
-      };
-      calculateRemainingDays();
-    }
-  }, [selectedVisit]);
+    const fetchPrescriptions = async () => {
+      try {
+        const response = await api.get(`/api/prescriptions/${user._id}`);
+        setVisits(response.data);
+      } catch (error) {
+        console.error("Error fetching prescriptions:", error);
+      }
+    };
+    fetchPrescriptions();
+  }, [user]);
 
-  const handleDoseTaken = (visitId, prescriptionId) => {
-    setVisits(
-      visits.map((visit) =>
-        visit.id === visitId
-          ? {
-              ...visit,
-              prescriptions: visit.prescriptions.map((prescription) =>
-                prescription.id === prescriptionId
-                  ? { ...prescription, tookDose: true }
-                  : prescription
-              ),
-            }
-          : visit
-      )
-    );
+  const handleDoseTaken = async (visitId, prescriptionId) => {
+    try {
+      await api.patch(
+        `/api/prescriptions/${user._id}/${visitId}/${prescriptionId}`,
+        { tookDose: true },
+      );
+      setVisits((prevVisits) =>
+        prevVisits.map((visit) =>
+          visit._id === visitId
+            ? {
+                ...visit,
+                prescriptions: visit.prescriptions.map((prescription) =>
+                  prescription._id === prescriptionId
+                    ? { ...prescription, tookDose: true }
+                    : prescription,
+                ),
+              }
+            : visit,
+        ),
+      );
+    } catch (error) {
+      console.error("Error updating dose status:", error);
+    }
   };
 
   return (
@@ -96,13 +60,13 @@ const Prescriptions = () => {
           </thead>
           <tbody>
             {visits.map((visit) => (
-              <tr key={visit.id}>
+              <tr key={visit._id}>
                 <td>{visit.doctor}</td>
                 <td>{visit.visitDate}</td>
                 <td>
                   <button
                     className="btn-view-prescriptions"
-                    onClick={() => setSelectedVisit(visit.id)}
+                    onClick={() => setSelectedVisit(visit._id)}
                   >
                     View Prescriptions
                   </button>
@@ -118,7 +82,7 @@ const Prescriptions = () => {
           </button>
           <h2>
             Prescriptions for{" "}
-            {visits.find((v) => v.id === selectedVisit).doctor}
+            {visits.find((v) => v._id === selectedVisit).doctor}
           </h2>
           <table>
             <thead>
@@ -131,9 +95,9 @@ const Prescriptions = () => {
             </thead>
             <tbody>
               {visits
-                .find((visit) => visit.id === selectedVisit)
+                .find((visit) => visit._id === selectedVisit)
                 .prescriptions.map((prescription) => (
-                  <tr key={prescription.id}>
+                  <tr key={prescription._id}>
                     <td>{prescription.medicine}</td>
                     <td>{prescription.status}</td>
                     <td>
@@ -148,7 +112,7 @@ const Prescriptions = () => {
                       <button
                         className="btn-dose"
                         onClick={() =>
-                          handleDoseTaken(selectedVisit, prescription.id)
+                          handleDoseTaken(selectedVisit, prescription._id)
                         }
                         disabled={
                           prescription.tookDose || prescription.duration === 0
@@ -167,4 +131,4 @@ const Prescriptions = () => {
   );
 };
 
-export default Prescriptions;
+export default PPrescriptions;

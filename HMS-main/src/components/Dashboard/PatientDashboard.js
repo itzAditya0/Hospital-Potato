@@ -4,7 +4,7 @@ import "./Styles/PatientDashboard.css"; // Update this with the correct CSS file
 import Dashboard from "../Patient/PDashboard";
 import DoctorsPage from "../Patient/PDoctors";
 import Appointments from "../Patient/PAppointments";
-import PatientPage from "../Patient/PPatients";
+// import PatientPage from "../Patient/PPatients";
 import EducationContentPage from "../Patient/PEducationContent";
 import PrescriptionPage from "../Patient/PPrescriptions";
 import PSettings from "../Patient/PSettings"; // Import the PSettings component

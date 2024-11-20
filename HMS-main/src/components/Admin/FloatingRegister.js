@@ -1,10 +1,9 @@
-// src/components/Register.js
+// src/components/Admin/FloatingRegister.js
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 import api from "../../api";
-import styles from "./Styles/Register.module.css";
+import styles from "./Styles/FloatingRegister.css";
 
-const Register = ({ type = "patient" }) => {
+const FloatingRegister = ({ type = "patient", onClose }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -13,7 +12,6 @@ const Register = ({ type = "patient" }) => {
     confirmPassword: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
-  const history = useHistory();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -28,16 +26,24 @@ const Register = ({ type = "patient" }) => {
 
     try {
       await api.post("/user/register", { ...formData, role: type });
-      history.push("/login");
+      alert(
+        `${type.charAt(0).toUpperCase() + type.slice(1)} registered successfully`,
+      );
+      onClose();
     } catch {
       setErrorMessage("Registration failed");
     }
   };
 
   return (
-    <div className={styles.registerPage}>
-      <div className={styles.registerContainer}>
-        <header className={styles.header}>Patient Registration</header>
+    <div className={styles.modalOverlay}>
+      <div className={styles.modalContent}>
+        <header className={styles.header}>
+          {type.charAt(0).toUpperCase() + type.slice(1)} Registration
+          <button onClick={onClose} className={styles.closeBtn}>
+            ×
+          </button>
+        </header>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -87,4 +93,4 @@ const Register = ({ type = "patient" }) => {
   );
 };
 
-export default Register;
+export default FloatingRegister;

@@ -2,10 +2,10 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5001/api", // Replace with your backend URL
+  baseURL: "http://localhost:5001/api", // Adjust to your backend URL if different
 });
 
-// Adding authorization header
+// Automatically attach the token to headers if it exists
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
   if (token) {

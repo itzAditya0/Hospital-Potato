@@ -1,58 +1,71 @@
-import React, { useState } from 'react';
-import './Styles/PPatients.css';
+// src/components/Patient/PSettings.js
+import React, { useState, useContext, useEffect } from "react";
+import api from "../../api";
+import "./Styles/PPatients.css";
+import { AuthContext } from "../../context/AuthContext";
 
-function PatientPage() {
-    const [patients] = useState([
-        { name: 'Elizabeth Polson', doctor: 'Dr. John', appointmentTime: '10:00 AM', prescription: null },
-        { name: 'John David', doctor: 'Dr. Joel', appointmentTime: '11:00 AM', prescription: null }
-    ]);
+const PSettings = () => {
+  const { user } = useContext(AuthContext);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    username: "",
+  });
 
-    const handleDownload = (index) => {
-        const patient = patients[index];
-        if (patient.prescription) {
-            const url = URL.createObjectURL(patient.prescription);
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', patient.prescription.name);
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-    };
+  useEffect(() => {
+    setFormData({
+      name: user.name,
+      email: user.email,
+      username: user.username,
+    });
+  }, [user]);
 
-    return (
-        <div className="patient-page">
-            <h2>Patient List</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Patient Name</th>
-                        <th>Doctor Assigned</th>
-                        <th>Appointment Time</th>
-                        <th>Prescription</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {patients.map((patient, index) => (
-                        <tr key={index}>
-                            <td>{patient.name}</td>
-                            <td>{patient.doctor}</td>
-                            <td>{patient.appointmentTime}</td>
-                            <td>
-                                {patient.prescription ? (
-                                    <button className="view-download-btn" onClick={() => handleDownload(index)}>
-                                        View/Download
-                                    </button>
-                                ) : (
-                                    <span>No document</span>
-                                )}
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
-    );
-}
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-export default PatientPage;
+  const handleSave = async () => {
+    try {
+      await api.put(`/api/users/${user._id}`, formData);
+      alert("Profile updated successfully!");
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      alert("Update failed. Please try again.");
+    }
+  };
+
+  return (
+    <div className="settings-page">
+      <h2>Profile Settings</h2>
+      <form>
+        <label>Name</label>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleInputChange}
+        />
+        <label>Email</label>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
+        />
+        <label>Username</label>
+        <input
+          type="text"
+          name="username"
+          value={formData.username}
+          onChange={handleInputChange}
+        />
+        <button type="button" onClick={handleSave} className="btn-save">
+          Save Changes
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default PSettings;

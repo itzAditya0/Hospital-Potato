@@ -52,14 +52,16 @@ const registerUser = asyncHandler(async (req, res) => {
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
+  // Find the user by email
   const user = await User.findOne({ email });
 
+  // Verify user exists and password is correct
   if (user && (await bcrypt.compare(password, user.password))) {
+    // Return user info and token
     res.json({
       _id: user._id,
       name: user.name,
       email: user.email,
-      username: user.username,
       role: user.role,
       token: generateToken(user._id),
     });

@@ -1,41 +1,106 @@
-/* EducationContent.css */
-.education-content-container {
-    background-color: #fff;
-    padding: 24px;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 20px auto;
-    transition: box-shadow 0.3s ease;
+/* src/Styles/EducationContent.css */
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f5f7fa;
+    --text-color: #333;
+    --heading-font: 'Helvetica', sans-serif;
+    --body-font: 'Arial', sans-serif;
+    --item-bg: #ffffff;
+    --item-shadow: rgba(0, 0, 0, 0.15);
+    --link-color: #357ab8;
 }
 
-.education-content-container:hover {
+/* Main Container */
+.education-content__container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    font-family: var(--body-font);
+}
+
+.education-content__title {
+    font-size: 2.4em;
+    color: var(--primary-color);
+    font-family: var(--heading-font);
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* Individual Article Item */
+.education-content__item {
+    background-color: var(--item-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--item-shadow);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.education-content__item:hover {
+    transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.article-list {
-    list-style: none;
-    padding: 0;
-}
-
-.article-item {
-    padding: 15px;
-    border-radius: 8px;
-    background-color: #f9f9fc;
+/* Article Title */
+.education-content__item-title {
+    font-size: 1.5em;
+    color: var(--text-color);
+    font-weight: bold;
     margin-bottom: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition:
-        transform 0.3s ease,
-        background-color 0.3s ease;
+    transition: color 0.3s ease;
 }
 
-.article-item:hover {
-    transform: translateY(-3px);
-    background-color: #eef1f5;
+.education-content__item-title:hover {
+    color: var(--primary-color);
 }
 
-.article-item h3 {
+/* Article Description */
+.education-content__item-description {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Read More Link */
+.education-content__item-link {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--link-color);
+    text-decoration: none;
+    border: 2px solid var(--link-color);
+    border-radius: 25px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.education-content__item-link:hover {
+    background-color: var(--link-color);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* No Content Placeholder */
+.education-content__empty {
     font-size: 1.3em;
-    color: #333;
-    margin-bottom: 5px;
+    color: #888;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Adding Subtle Sticker Image */
+.education-content__item::before {
+    content: "📘";
+    position: absolute;
+    font-size: 2em;
+    opacity: 0.1;
+    top: 20px;
+    right: 20px;
 }

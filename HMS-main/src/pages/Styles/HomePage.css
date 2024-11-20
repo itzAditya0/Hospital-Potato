@@ -1,0 +1,229 @@
+/* src/styles/HomePage.css */
+
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    background-color: #f4f4f4; /* Light background for contrast */
+    color: #333; /* Dark text for readability */
+}
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(
+        0,
+        0,
+        0,
+        0.6
+    ); /* Darker overlay for better text contrast */
+}
+
+.animated-title {
+    font-size: 3.5em;
+    animation: fadeInSlide 2s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow for better readability */
+}
+
+.hero-subtitle {
+    font-size: 1.8em;
+    margin: 10px 0;
+}
+
+/* src/styles/HomePage.css */
+
+.cta-button-link {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #0077b6;
+    border-radius: 30px;
+    text-decoration: none;
+    text-align: center;
+    transition:
+        background-color 0.3s,
+        transform 0.3s;
+}
+
+.cta-button-link:hover {
+    background-color: #005f8a;
+    transform: scale(1.05);
+}
+
+/* Information Section */
+.info-section {
+    padding: 40px;
+    text-align: center;
+    background-color: #ffffff; /* White background for contrast */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.info-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #0077b6; /* Blue title color */
+}
+
+.info-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.info-card {
+    background: #f9f9f9; /* Light gray background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    width: 30%;
+    min-width: 250px;
+    transition: transform 0.3s; /* Smooth hover effect */
+}
+
+.info-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Feature Details with Smooth Expansion */
+.feature-item {
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.feature-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0077b6;
+    transition: color 0.3s;
+}
+
+.feature-detail {
+    max-height: 0;
+    overflow: hidden;
+    font-size: 1em;
+    margin-top: 10px;
+    color: #555;
+    transition:
+        max-height 0.3s ease,
+        padding 0.3s ease;
+}
+
+.feature-item:hover .feature-detail {
+    max-height: 100px; /* Adjust based on the content length */
+    padding: 10px 0; /* Adds padding during expansion */
+}
+
+.feature-item:hover .feature-title {
+    color: #005f8a; /* Darker blue on hover */
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 40px;
+    background-color: #ffffff; /* White background */
+    text-align: center;
+}
+
+.testimonials {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.testimonial {
+    background: #f9f9f9; /* Light gray background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    min-width: 250px;
+    transition: transform 0.3s; /* Smooth hover effect */
+}
+
+.testimonial:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.testimonial-text {
+    font-size: 1em;
+    color: #333; /* Dark text for readability */
+}
+
+.testimonial-author {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #0077b6; /* Blue for author name */
+}
+
+/* Footer Section */
+.homepage-footer {
+    padding: 20px;
+    background-color: #0077b6; /* Blue background */
+    color: #fff; /* White text */
+    text-align: center;
+}
+
+.social-links {
+    margin: 10px 0;
+}
+
+.social-icon {
+    color: #fff; /* White text for social links */
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .info-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-card {
+        width: 80%; /* Full width on smaller screens */
+    }
+
+    .features-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-item {
+        width: 80%; /* Full width on smaller screens */
+    }
+
+    .testimonials {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial {
+        width: 80%; /* Full width on smaller screens */
+    }
+}

@@ -6,6 +6,7 @@ import DPatients from "../Doctors/DPatients";
 import DAppointment from "../Doctors/DAppointment";
 import DDoctors from "../Doctors/DDoctors";
 import IPDPage from "../Doctors/IPDPatients"; // Import the IPDPage component
+import EducationContent from "../Doctors/EducationContent";
 import Settings from "../Doctors/Settings";
 
 function DoctorDashboard() {
@@ -99,11 +100,12 @@ function DoctorDashboard() {
           <Route exact path="/doctors/patients" component={DPatients} />
           <Route exact path="/doctors/appointments" component={DAppointment} />
           <Route exact path="/doctors/doctors" component={DDoctors} />
-          <Route exact path="/doctors/ipd" component={IPDPage} /> {/* IPD Route */}
+          <Route exact path="/doctors/ipd" component={IPDPage} />{" "}
+          {/* IPD Route */}
           <Route
             exact
             path="/doctors/education-content"
-            render={() => <h2>Education Content Page</h2>}
+            component={EducationContent}
           />
           <Route exact path="/doctors/settings" component={Settings} />
         </Switch>

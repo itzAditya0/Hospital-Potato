@@ -1,136 +1,78 @@
-import React, { useState } from 'react';
-import './Styles/PSettings.css';
+import React, { useState, useContext } from "react";
+import api from "../../api";
+import { AuthContext } from "../../context/AuthContext";
+import "./Styles/PSettings.css";
 
-function PSettings() {
-    const [profile, setProfile] = useState({
-        name: "John Doe",
-        email: "john.doe@example.com",
-        phone: "123-456-7890"
-    });
-    const [newPassword, setNewPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [notificationPreferences, setNotificationPreferences] = useState({
-        email: true,
-        sms: false,
-    });
+const PSettings = () => {
+  const { user, setUser } = useContext(AuthContext);
+  const [formData, setFormData] = useState({
+    name: user.name,
+    email: user.email,
+    password: "",
+    confirmPassword: "",
+  });
+  const [message, setMessage] = useState("");
 
-    const handleProfileChange = (e) => {
-        const { name, value } = e.target;
-        setProfile({ ...profile, [name]: value });
-    };
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-    const handlePasswordChange = () => {
-        if (newPassword !== confirmPassword) {
-            alert("Passwords do not match!");
-            return;
-        }
-        // Add logic for password change
-        alert("Password updated successfully!");
-    };
+  const handleUpdate = async () => {
+    if (formData.password !== formData.confirmPassword) {
+      setMessage("Passwords do not match.");
+      return;
+    }
 
-    const handleNotificationChange = (e) => {
-        const { name, checked } = e.target;
-        setNotificationPreferences({ ...notificationPreferences, [name]: checked });
-    };
+    try {
+      const response = await api.put(`/api/user/${user._id}/update`, formData);
+      setUser(response.data);
+      setMessage("Profile updated successfully.");
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      setMessage("Update failed. Please try again.");
+    }
+  };
 
-    return (
-        <div className="settings-container">
-            <h2>Account Settings</h2>
-
-            {/* Profile Information */}
-            <div className="settings-section">
-                <h3>Profile Information</h3>
-                <div className="settings-form">
-                    <label>Name:</label>
-                    <input
-                        type="text"
-                        name="name"
-                        value={profile.name}
-                        onChange={handleProfileChange}
-                    />
-
-                    <label>Email:</label>
-                    <input
-                        type="email"
-                        name="email"
-                        value={profile.email}
-                        onChange={handleProfileChange}
-                    />
-
-                    <label>Phone:</label>
-                    <input
-                        type="text"
-                        name="phone"
-                        value={profile.phone}
-                        onChange={handleProfileChange}
-                    />
-
-                    <button className="save-button">Save Profile</button>
-                </div>
-            </div>
-
-            {/* Change Password */}
-            <div className="settings-section">
-                <h3>Change Password</h3>
-                <div className="settings-form">
-                    <label>New Password:</label>
-                    <input
-                        type="password"
-                        value={newPassword}
-                        onChange={(e) => setNewPassword(e.target.value)}
-                    />
-
-                    <label>Confirm Password:</label>
-                    <input
-                        type="password"
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                    />
-
-                    <button className="save-button" onClick={handlePasswordChange}>
-                        Update Password
-                    </button>
-                </div>
-            </div>
-
-            {/* Notification Preferences */}
-            <div className="settings-section">
-                <h3>Notification Preferences</h3>
-                <div className="settings-form">
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="email"
-                            checked={notificationPreferences.email}
-                            onChange={handleNotificationChange}
-                        />
-                        Email Notifications
-                    </label>
-
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="sms"
-                            checked={notificationPreferences.sms}
-                            onChange={handleNotificationChange}
-                        />
-                        SMS Notifications
-                    </label>
-
-                    <button className="save-button">Save Preferences</button>
-                </div>
-            </div>
-
-            {/* Privacy Settings */}
-            <div className="settings-section">
-                <h3>Privacy Settings</h3>
-                <div className="settings-form">
-                    <p>Control the visibility of your profile data and how it is shared with third-party services.</p>
-                    <button className="save-button">Manage Privacy</button>
-                </div>
-            </div>
-        </div>
-    );
-}
+  return (
+    <div className="settings-page">
+      <h2>Settings</h2>
+      <form>
+        <label>Name:</label>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleInputChange}
+        />
+        <label>Email:</label>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
+        />
+        <label>Password:</label>
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleInputChange}
+        />
+        <label>Confirm Password:</label>
+        <input
+          type="password"
+          name="confirmPassword"
+          value={formData.confirmPassword}
+          onChange={handleInputChange}
+        />
+        {message && <p className="message">{message}</p>}
+        <button type="button" onClick={handleUpdate}>
+          Update Profile
+        </button>
+      </form>
+    </div>
+  );
+};
 
 export default PSettings;
